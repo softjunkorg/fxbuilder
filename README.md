@@ -5,7 +5,7 @@ Esta package simplifica a gestão do CFX `manifest` em projetos de FiveM e RedM,
 ## Instalação 💾
 
 ```bash
-    npm install @softjunkorg/fxbuilder
+    npm install @softjunk/fxbuilder
 ```
 
 ## 📃 API
@@ -15,7 +15,7 @@ Esta package simplifica a gestão do CFX `manifest` em projetos de FiveM e RedM,
 Analisa um arquivo compactado de `manifest` e o transforma em um objeto `manifest`.
 
 ```js
-import { parse } from "@softjunkorg/fxbuilder";
+import { parse } from "@softjunk/fxbuilder";
 
 const result = parse({
   fx_version: "adamant",
@@ -29,7 +29,7 @@ const result = parse({
 Recebe um objeto `manifest` e o transforma em um arquivo compactado de `manifest`.
 
 ```js
-import { stringify } from "@softjunkorg/fxbuilder";
+import { stringify } from "@softjunk/fxbuilder";
 
 const result = stringify(`
         fx_version "boudacious"
