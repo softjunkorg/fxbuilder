@@ -1,16 +1,6 @@
 {
   "name": "@softjunk/fxbuilder",
-  "version": "0.0.1",
-  "license": "MIT",
-  "main": "./lib/index.js",
-  "files": [
-    "lib/**/*"
-  ],
-  "author": {
-    "name": "Softjunk Team",
-    "email": "softjunkdevs@gmail.com",
-    "url": "https://github.com/softjunkorg"
-  },
+  "version": "0.0.0-development",
   "keywords": [
     "fivem",
     "cfx",
@@ -19,16 +9,51 @@
     "typescript",
     "next"
   ],
-  "engines": {
-    "node": ">=17.0"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/softjunkorg/fxbuilder.git"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Softjunk Team",
+    "email": "softjunkdevs@gmail.com",
+    "url": "https://github.com/softjunkorg"
+  },
+  "types": "./lib/index.d.ts",
+  "main": "./lib/index.js",
+  "files": [
+    "lib/**/*"
+  ],
+  "scripts": {
+    "build": "yarn clean && node builder",
+    "clean": "rm -rf ./lib",
+    "dev": "npx nodemon",
+    "lint": "eslint ./src/ --fix",
+    "start": "yarn build && node ./lib",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "luamin": "^1.0.4"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@types/node": "^18.14.6",
+    "@typescript-eslint/eslint-plugin": "^5.54.1",
+    "@typescript-eslint/parser": "^5.54.1",
+    "esbuild": "^0.17.11",
+    "esbuild-plugin-d.ts": "^1.1.0",
     "eslint": "^8.0.1",
+    "eslint-config-prettier": "^8.7.0",
     "eslint-config-standard-with-typescript": "^34.0.0",
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-n": "^15.0.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-promise": "^6.0.0",
+    "lua-fmt": "^2.6.0",
+    "nodemon": "^2.0.21",
+    "prettier": "^2.8.4",
+    "source-map-support": "^0.5.21",
+    "ts-node": "^10.9.1",
     "typescript": "*"
   }
 }
