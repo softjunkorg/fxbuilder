@@ -1,7 +1,7 @@
 import { formatText } from "lua-fmt";
 import { minify } from "luamin";
 import defaultKeys from "../config/defaultKeys";
-import { AnyObject, IParsedObject } from "../types";
+import { AnyObject, ManifestObject } from "../types";
 import encoder from "./encoder";
 
 function handleResult(object: AnyObject, data: any) {
@@ -40,10 +40,10 @@ function handleResult(object: AnyObject, data: any) {
   return object;
 }
 
-function parse(content: string): IParsedObject {
+function parse(content: string): ManifestObject {
   const format = formatText(minify(content));
   const blocks = format.split("\n").filter((n) => !!n);
-  const result: IParsedObject = { __customData: {} };
+  const result: ManifestObject = { runtime: {} };
 
   /* Mapping the blocks */
   if (blocks) {
@@ -69,8 +69,8 @@ function parse(content: string): IParsedObject {
       if (isNative) {
         result[name] = handleResult(result[name], data);
       } else {
-        (<AnyObject>result["__customData"])[name] = handleResult(
-          (<AnyObject>result["__customData"])[name],
+        (<AnyObject>result["runtime"])[name] = handleResult(
+          (<AnyObject>result["runtime"])[name],
           data,
         );
       }

@@ -10,36 +10,36 @@ Esta package simplifica a gestão do CFX `manifest` em projetos de FiveM e RedM,
 
 ## 📃 API
 
-#### parse(source: string): IParsedObject
+#### parse(source: string): ManifestObject
 
 Analisa um arquivo compactado de `manifest` e o transforma em um objeto `manifest`.
 
 ```js
 import { parse } from "@softjunk/fxbuilder";
 
-const result = parse({
-  fx_version: "adamant",
-  game: "gta5",
-  client_scripts: ["main.lua", "main2.lua"],
-});
+const result = parse(`
+    fx_version "boudacious"
+    game "rdr3"
+
+    client_scripts {
+        "client.lua",
+        "client_two.lua"
+    }
+`);
 ```
 
-#### stringify(object: IParsedObject): string
+#### stringify(object: ManifestObject): string
 
 Recebe um objeto `manifest` e o transforma em um arquivo compactado de `manifest`.
 
 ```js
 import { stringify } from "@softjunk/fxbuilder";
 
-const result = stringify(`
-        fx_version "boudacious"
-        game "rdr3"
-
-        client_scripts {
-            "client.lua",
-            "client_two.lua"
-        }
-    `);
+const result = stringify({
+  fx_version: "adamant",
+  game: "gta5",
+  client_scripts: ["main.lua", "main2.lua"],
+});
 ```
 
 ## Solução de problemas ⚠️

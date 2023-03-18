@@ -1,12 +1,8 @@
-export interface IParsedObject {
-  [x: string]: any;
-}
-
 export type GameTypes = "gta4" | "common" | "gta5" | "rdr3";
 
 export type ManifestVersions = "cerulean" | "adamant" | "bodacious";
 
-export interface IManifestObject {
+export interface ManifestObject {
   fx_version?: ManifestVersions;
   game?: GameTypes;
   games?: Array<GameTypes>;
@@ -35,6 +31,7 @@ export interface IManifestObject {
   lua54?: "yes";
   provide?: string;
   clr_disable_task_scheduler?: "yes";
+  runtime?: AnyObject;
   [x: string]: any;
 }
 
