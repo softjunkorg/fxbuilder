@@ -1,6 +1,6 @@
 {
   "name": "@softjunk/fxbuilder",
-  "version": "0.0.2",
+  "version": "0.0.2-1",
   "keywords": [
     "fivem",
     "cfx",
@@ -19,21 +19,18 @@
     "email": "softjunkdevs@gmail.com",
     "url": "https://github.com/softjunkorg"
   },
-  "types": "./lib/index.d.ts",
   "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
   "files": [
     "lib/**/*"
   ],
   "scripts": {
     "build": "yarn clean && node builder",
-    "clean": "rm -rf ./lib",
+    "clean": "rimraf -rf ./lib",
     "dev": "npx nodemon",
     "lint": "eslint ./src/ --fix",
     "start": "yarn build && node ./lib",
     "typecheck": "tsc --noEmit"
-  },
-  "dependencies": {
-    "luamin": "^1.0.4"
   },
   "devDependencies": {
     "@types/node": "^18.14.6",
@@ -50,8 +47,10 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-promise": "^6.0.0",
     "lua-fmt": "^2.6.0",
+    "luamin": "^1.0.4",
     "nodemon": "^2.0.21",
     "prettier": "^2.8.4",
+    "rimraf": "^4.4.0",
     "source-map-support": "^0.5.21",
     "ts-node": "^10.9.1",
     "typescript": "*"
